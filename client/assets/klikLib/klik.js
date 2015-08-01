@@ -700,8 +700,8 @@ function KlikPath(R, polygon, video, layersId){
 	var _that = this;
 	this.video = video;
 	_that.polygon = polygon;
-	// this.R = R;
-	// this.layersId = layersId;
+	this.R = R;
+	this.layersId = layersId;
 
 	var polyPath = R.path('');
 	var layerId = 'ivarqt2sa';
