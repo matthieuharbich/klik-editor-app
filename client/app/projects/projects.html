@@ -1,0 +1,20 @@
+<div class="header col-md-33">
+	<form action="" class="form-inline">
+		<span class="glyphicon glyphicon-search"></span>
+		<input type="text" class="form-control" ng-model="projectSearch" placeholder="Search">
+	</form>
+	<button ng-controller="LoginCtrl" ng-click="logout()" class="btn btn-danger glyphicon glyphicon-log-out"></button>
+	<button ng-controller="LoginCtrl" ng-click="openNewProjectDialog()" class="btn btn-success glyphicon glyphicon-plus-sign addProjectBtn"></button>
+	<button ui-sref="videos" class="btn btn-primary videoMenu">Videos</button>
+
+</div>
+
+<div id="projects">
+	<div class="projectContainer col-md-7 col-md-offset-1" ng-repeat="project in projects | filter:projectSearch" ng-style="{'background-image':'url({{project.thumbPath+'_1.png'}})'}">
+		<div class="project" ui-sref="editor({ projectId: project._id })" > {{project.name}}</div>
+		<div class="parameters" ng-click='openParamDialog(project)'>
+			<span class="glyphicon glyphicon-cog" aria-hidden="false"></span>
+		</div>
+	</div>
+</div>
+

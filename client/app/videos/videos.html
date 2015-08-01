@@ -1,0 +1,20 @@
+<div class="header col-md-33">
+	<form action="" class="form-inline">
+		<!-- <span class="glyphicon glyphicon-search"></span> -->
+		<input type="text" class="form-control" ng-model="projectSearch" placeholder="Search">
+	</form>
+	<button ng-controller="LoginCtrl" ng-click="logout()" class="btn btn-danger glyphicon glyphicon-log-out"></button>
+	<button ng-controller="LoginCtrl" ng-click="openNewProjectDialog()" class="btn btn-success glyphicon glyphicon-plus-sign addProjectBtn"></button>
+	<button ui-sref="projects" class="btn btn-primary videoMenu">Projects</button>
+
+</div>
+
+<div id="videos">
+	<div  ng-repeat="video in videoProjects" class="videoContainer col-md-15 col-md-offset-1">
+		<iframe src="{{'http://localhost:9000/video/' + video._id}}" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+	</div>
+</div>
+
+
+
+	

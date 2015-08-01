@@ -1,0 +1,23 @@
+<h2 class="formTitle" ng-model="ngDialogData.name">{{ngDialogData.name}}</h2>
+<form class="paramProjectForm" action="" ng-submit="updateProject(project._id, project.name, project.description); closeThisDialog()">
+	<input ng-model="ngDialogData.title" type="text" maxlength="10" class="form-control" placeholder="Element name">
+	<textarea ng-model="ngDialogData.description" rows="4" cols="50" type="text"  class="form-control" placeholder="Element description"></textarea>
+
+  <div class="form-group">
+    <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+    <div class="input-group">
+      <div class="input-group-addon">$</div>
+      <input type="text" ng-model="ngDialogData.price" class="form-control" id="exampleInputAmount" placeholder="Element price">
+      <div class="input-group-addon">.00</div>
+    </div>
+  </div>
+
+
+</form>
+
+
+
+
+
+
+<button class="btn btn-success updateProject" ng-click='closeThisDialog(); updateElement(ngDialogData.name, ngDialogData.title, ngDialogData.description, ngDialogData.price, ngDialogData._id)'>Update!</button>

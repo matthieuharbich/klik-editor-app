@@ -1,0 +1,56 @@
+[
+	{
+		"duration":0,
+		"polygon":[
+			{
+				"id":1,
+				"elementId":1,
+				"visible":true,
+				"points":[
+					{
+						"id":1,
+						"x": 20,
+						"y":40
+					},
+					{
+						"id":2,
+						"x": 46,
+						"y":40
+					},
+					{
+						"id":3,
+						"x": 50,
+						"y":30
+					}
+				]
+			}
+		]
+	},
+	{
+		"duration":3,
+		"polygon":[
+			{
+				"id":1,
+				"elementId":1,
+				"visible":true,
+				"points":[
+					{
+						"id":1,
+						"x": 60,
+						"y":30
+					},
+					{
+						"id":2,
+						"x": 76,
+						"y":60
+					},
+					{
+						"id":3,
+						"x": 20,
+						"y":60
+					}
+				]
+			}
+		]
+	}
+]

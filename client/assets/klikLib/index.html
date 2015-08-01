@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>klik lib</title>
+	<link rel="stylesheet" href="css/klik.css">
+	<link rel="stylesheet" href="plyr/plyr.css">
+
+    <script src="lib/jquery-1.11.3.js"></script>
+    <script src="lib/raphael.js"></script>
+    <script src="klik.js"></script>
+    <script src="klikEditor.js"></script>
+    <script src="klikControls.js"></script>
+    <script src="main.js"></script>
+    <script src="plyr/plyr.js"></script>
+    <script src="raphSand.js"></script>
+	
+</head>
+<body>
+	<h1>Klik lib sandbox</h1>
+	
+	<button id="newPolygon">New polyong</button>
+
+	<button id="updatePolygon">Update</button>
+	<button id="update">update polygons</button>
+	
+	<video class="klik" width="70%" height="" autoplay mute>
+		  <source src="bg.mp4" type="video/mp4">
+		   
+		  Your browser does not support the video tag.
+	</video>
+
+<!-- 	<video class="flo" width="70%" height="400px" autoplay mute>
+		  <source src="bg.mp4" type="video/mp4">
+		   
+		  Your browser does not support the video tag.
+	</video> -->
+
+
+	<div id="paper" style="height: 300px; width: 100%; background-color: grey; margin-top:80px;">
+		
+	</div>
+
+	<svg width="300px" height="400px" xmlns="http://www.w3.org/2000/svg"> 
+		<polygon points="0 0, 100 200, 0 100">
+			<animate     
+		        attributeName="width"     
+		        attributeType="XML"     
+		        from="0 0, 100 100, 0 100" to="0 0, 100 100, 0 300"     
+		        begin="0s" dur="5s"     
+		        fill="freeze" /> 
+		</polygon>
+
+		  <polygon fill="#FFD41D" points="0 0, 100 200, 0 100">
+		    	<animate attributeName="points" dur="1000ms" to="0 0, 100 100, 0 100 " />
+		  </polygon>
+	</svg>
+
+	
+	<!-- <video class="klik2" width="70%" height="200px" autoplay mute>
+		  <source src="bg.mp4" type="video/mp4">
+		   
+		  Your browser does not support the video tag.
+	</video>
+
+	<video class="klik3" width="" height="" autoplay mute>
+		  <source src="bg.mp4" type="video/mp4">
+		  
+		  Your browser does not support the video tag.
+	</video>
+
+	<video class="newClickVideo" width="20%" height="200px">
+		<source src="gp.mp4" type="video/mp4">
+	</video> -->
+
+	
+	
+	<p>dss</p>
+	
+	
+</body>
+</html>

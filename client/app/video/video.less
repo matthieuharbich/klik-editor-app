@@ -1,0 +1,305 @@
+html { height:100%; }
+body {  background-color: blue; 
+	overflow-y: hidden;
+ }
+
+.klikPlayerFullScreen{
+	width:100%;
+	height:100%;
+}
+
+.klik{
+}
+path:hover{
+	cursor:pointer;
+}
+
+.klikShare{
+	position: fixed;
+	top:20px;
+	right: 10px;
+	
+
+	background-color: transparent !important;
+
+	span{
+		color:white;
+		font-size: 2em;
+	}
+	&:hover{
+		span{color:#FFAF94;}
+	}
+}
+
+.klikControlsContainer{
+	// padding-top: 20px;
+}
+.klikControlsDown{
+	bottom:-33px;
+}
+
+.klikControlsUp{
+	bottom:0px;
+}
+.klikControls{
+	position:fixed;
+	
+	width: 100%;
+	height: 40px;
+	background-color: #1C1C1C;
+
+	.klikTime{
+		color:#E0E0E0;
+		line-height: 25px;
+	}
+	.klik-seek-bar{
+		width:100%;
+		// background-color: grey;
+		margin-top: 0;
+		padding-top: 0;
+		top:0;
+		margin-bottom: 1px;
+		&:hover{
+			cursor: pointer;
+		}
+	}
+		.klik-seek-bar{
+		  -webkit-appearance: none;
+		  -moz-appearance: none;
+		  background: none;
+		  cursor: pointer;
+		  display: block;
+		  overflow: hidden;
+		  width: 100%;
+
+		  &:focus {
+		    box-shadow: none;
+		    outline: none;
+		  }
+
+		  &::-webkit-slider-runnable-track {
+		    -webkit-appearance: none;
+		    background: #666;
+		    height: 7px;
+		  }
+
+		  &::-webkit-slider-thumb:before {
+		    position: absolute;
+		    top: 0;
+		    right: 50%;
+		    left: -10000px;
+		    background: #FFAF94;
+		    content: '';
+		    height: 7px;
+		    pointer-events: none;
+		  }
+
+
+		  &::-webkit-slider-thumb {
+		    width: 0;
+		    height: 0;
+		    -webkit-appearance: none;
+		    position: relative;
+		  }
+
+		  &::-moz-range-track {
+		    width: 100%;
+		  }
+
+		  &::-moz-range-thumb {
+		    width: 5px;
+		    height: 7px;
+
+		    -moz-appearance: none;
+		    background: transparent;
+		    border: 0;
+		    border-radius: 0;
+		    box-shadow: 0;
+		    position: relative;
+		  }
+
+		  // &::-moz-range-progress {
+		  //   background: #e00;
+		  // }
+
+		  &::-ms-track {
+		    background: transparent;
+		    border: 0;
+		    border-color: transparent;
+		    border-radius: 0;
+		    border-width: 0;
+		    color: transparent;
+		    height: 5px;
+		    width: 100%;
+		  }
+
+		  &::-ms-fill-lower {
+		    background: #e00;
+		    border-radius: 0;
+		  }
+
+		  &::-ms-fill-upper {
+		    background: #666;
+		    border-radius: 0;
+		  }
+
+		  &::-ms-thumb {
+		    width: 0;
+		    height: 0;
+		    background: transparent;
+		  }
+
+		  &::-ms-tooltip {
+		    display: none;
+		  }
+		}
+	button{
+		float:left;
+		height:35px;
+		width: 35px;
+		margin-left: 5px;
+		margin-top: -1px;
+		background-color: transparent !important;
+		span{
+			color:white;
+			font-size: 1.3em;
+		}
+		&:focus{
+			outline: none !important;
+		}
+	}
+	div{
+		float:left;
+	}
+	.logoControler{
+		float:right;
+		display:block;
+		margin-top:3px;
+		img{
+			height:25px;
+		
+		}
+		
+	}
+	.klikFS{
+		float:right;
+		margin-right: 5px;
+	}
+	.klikTime{
+		line-height: 33px;
+	}
+	.soundContainer{
+		.seek-volume{
+			float:left;
+			width:70%;
+			margin-top:12px;
+			display:none;
+			 &:focus {
+		    box-shadow: none;
+		    outline: none;
+		  }
+
+		  &:hover{
+		  	cursor:pointer;
+		  }
+
+		  &::-webkit-slider-runnable-track {
+		    -webkit-appearance: none;
+		    background: #666;
+		    height: 10px;
+		  }
+
+		  &::-webkit-slider-thumb:before {
+		    position: absolute;
+		    top: 0;
+		    right: 0%;
+		    left: 0px;
+		    background: #FFAF94;
+		    content: '';
+		    height: 10px;
+		    pointer-events: none;
+		  }
+
+
+		  &::-webkit-slider-thumb {
+		    width: 0;
+		    height: 0;
+		    -webkit-appearance: none;
+		    position: relative;
+		  }
+
+		  &::-moz-range-track {
+		    width: 100%;
+		  }
+
+		  &::-moz-range-thumb {
+		    width: 6px;
+		    height: 10px;
+
+		    -moz-appearance: none;
+		    background: transparent;
+		    border: 0;
+		    border-radius: 0;
+		    box-shadow: 0;
+		    position: relative;
+		  }
+
+		  &::-moz-range-progress {
+		    background: #e00;
+		  }
+
+		  &::-ms-track {
+		    background: transparent;
+		    border: 0;
+		    border-color: transparent;
+		    border-radius: 0;
+		    border-width: 0;
+		    color: transparent;
+		    height: 5px;
+		    width: 100%;
+		  }
+
+		  &::-ms-fill-lower {
+		    background: #e00;
+		    border-radius: 0;
+		  }
+
+		  &::-ms-fill-upper {
+		    background: #666;
+		    border-radius: 0;
+		  }
+
+		  &::-ms-thumb {
+		    width: 0;
+		    height: 0;
+		    background: transparent;
+		  }
+
+		  &::-ms-tooltip {
+		    display: none;
+		  }
+		
+		}
+		button{
+			float:left;
+			margin-left: -3px;
+			margin-top: -2px;
+			margin-right: 10px;
+			span{
+				font-size: 1.6em;
+			}
+			&:focus{
+				outline: none !important;
+			}
+		}
+	}
+	
+	
+}
+
+.iframeLink{
+	padding-bottom: 0 !important;
+	padding-top: 20px !important;	
+
+}
+

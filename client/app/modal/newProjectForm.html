@@ -1,0 +1,40 @@
+<h3 class="newProjectName">New project</h3>
+<form ng-submit="addProject()" action="" enctype="multipart/form-data" class="newProjectForm">
+	<input type="text" ng-model="projectName" placeholder="Project name" class="form-control">
+	<textarea ng-model="projectDescription" name="" id="" cols="30" rows="4" type="text" placeholder="Project description" class="form-control"></textarea>
+	<div ngf-drop ngf-select ng-model="files" class="drop-box" 
+        ngf-drag-over-class="dragover"
+        accept="video/*">Drop video here</div>
+    <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
+</form>
+
+<div class="progress">
+  <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progress}}%;">
+    {{progress + '%'}}
+  </div>
+</div>
+
+
+
+<!-- <div>Username
+    <input type="text" ng-model="username"></br></br>
+    <input type="checkbox" ng-model="multiple">upload multiple file</br></br>
+    watching model:
+    <div class="button" ngf-select ng-model="files" ngf-multiple="multiple">Select File</div>
+    on file change:
+    <div class="button" ngf-select ngf-change="upload($files)" ngf-multiple="multiple">Select File</div>
+    Drop File:
+    <div ngf-drop ngf-select ng-model="files" class="drop-box" 
+        ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true"
+        accept="image/*,application/pdf,video/*">Drop pdfs or images here or click to upload</div>
+    <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
+    Files:
+    <ul>
+        <li ng-repeat="f in files" style="font:smaller">{{f.name}}</li>
+    </ul>
+    Upload Log:
+    <pre>{{log}}</pre>
+</div> -->
+
+
+<button class="btn btn-success addProjectBtn saveProjectBtn" ng-disabled="{{videoUploaded}}" ng-click="closeThisDialog(); addProject(projectName, projectDescription)">Add project {{videoUploaded}}</button>

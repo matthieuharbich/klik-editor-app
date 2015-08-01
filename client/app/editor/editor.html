@@ -1,0 +1,91 @@
+<div class="header col-md-33">
+	<h1>{{project.name}}</h1>
+	<button class="btn btn-danger glyphicon glyphicon-home" ui-sref="projects"></button>
+	<h2>{{activeElementName}}</h2>
+</div>
+
+<div id="mainEditor" class="editorMain col-md-33" style="bottom: {{mainBottom}}">
+	<div class="editorLeftSide">
+		<div  class="editButtonsBar col-md-29 col-md-offset-2">
+			<button ng-disabled="isElementActive" id="newPolygon"  class="btn btn-primary icon-Maps-Polygon-iconpng"></button>
+			<button disabled="true" class="btn btn-primary icon-radio-unchecked"></button>
+			<button disabled="true" class="btn btn-primary icon-checkbox-unchecked"></button>
+			<button disabled="true" class="btn btn-primary glyphicon glyphicon-pencil"></button>
+		</div>
+		<div class="secondEditButtonsBar col-md-29 col-md-offset-2">
+			<button ng-disabled="{{isElementActive}}" class="btn btn-danger icon-content_cut"></button>
+		</div>
+		<div class="addElementBar col-md-29 col-md-offset-2">
+			<form action="">
+				<div class="form-group col-md-33">
+					<label for="">Element name</label>
+					<input type="text" placeholder="Enter element name" class="form-control col-md-3" ng-model="elementName" maxlength="8">
+				</div>
+				<div class="form-group col-md-17">
+					<label for="">Action</label>
+					<select name="" id="" ng-model="elementEvent" class="form-control">
+						<option value="mousedown">MouseDown (Click)</option>
+						<option value="mouseover">MouseOver</option>
+					</select>
+				</div>
+				<div class="form-group col-md-16">
+					<label for="">Event</label>
+					<select name="" ng-model="elementAction" id="" class="form-control">
+						<option value="sideBox">Side Box</option>						
+					</select>
+				</div>
+			</form>
+			<button class="btn btn-success" ng-disabled="!(!!elementName && !!elementEvent  && !!elementAction)" ng-click="postElement(elementName, elementEvent, elementAction, project._id)">Add Element</button>
+		</div>
+	</div>
+	<div id="mainEditor-resizer" resizer="vertical" resizer-width="6" resizer-left=".editorLeftSide" resizer-right=".editorVideo"></div>
+		
+	
+	<div class="editorVideo" >
+		<div id="klik-container" >
+			<video  ng-src="{{project.videoPath}}" klik class="klikEditor" width="100%" height="100%"  mute>
+			  <!-- <source src="assets/videos/bg.mp4" type="video/mp4"> -->
+			  <source ng-src="{{project.videoPath}}" type="video/mp4">
+			   
+			  Your browser does not support the video tag.
+			</video>
+		</div>
+
+		
+		<div class="editionControlBar col-md-33">
+			<h2 class="currentTime"> {{editorCurrentTime}}</h2>
+			<button class="step-backward btn btn-primary glyphicon glyphicon-step-backward"></button>
+			<button class="play-pause btn btn-primary glyphicon"><span class="glyphicon glyphicon-play"></span></button>
+			<button class="step-forward btn btn-primary glyphicon glyphicon-step-forward"></button>
+			<button class="btn btn-success floatRight glyphicon previewToggle" ng-click="togglePreview()">Preview</button>
+			<div id="disableEdition" ng-hide="edition"></div>
+		</div>
+	</div>
+</div>
+
+<div id="content-resizer" style="bottom:{{resizerStyle}}" resizer="horizontal" resizer-height="6" resizer-top="#mainEditor" resizer-bottom="#timeline"></div>
+
+<div id="timeline" class="timelineEditor col-md-33" ng-style="timelineEditorStyle">
+	<div class="timelineTimes col-md-33">
+		<div class="leftZone col-md-9">
+			
+		</div>
+		<div class="timeZone col-md-24">
+			<div class="timeCode col-md-33">
+				<input type="range" min ="0" max="{{videoDuration}}" step ="0.25" value="{{curT}}" ng-model="curT">
+			</div>
+		</div>
+	</div>
+	<div ng-repeat="element in elements" ng-click="activeElement($index)" ng-class="{sel: $index == selected}" class="elementRow col-md-33">
+		<div class="element col-md-9">
+			<h2>{{element.name}}</h2>
+			<div class="elementButtons">
+				<button disabled="true" class="btn btn-default glyphicon glyphicon-cog"></button>
+				<button disabled="true" class="btn btn-success glyphicon glyphicon-eye-open"></button>
+				<button class="btn btn-primary glyphicon glyphicon-comment" ng-click="openElementModal(element)"></button>
+				<button class="btn btn-danger glyphicon glyphicon-remove" ng-click="removeElement(project._id, element._id)"></button>
+			</div>
+		</div>
+		<div class="dragZone col-md-24"></div>
+	</div>
+</div>

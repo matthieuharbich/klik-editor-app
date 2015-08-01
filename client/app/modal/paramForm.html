@@ -1,0 +1,18 @@
+<h2 class="formTitle">{{project.name}}</h2>
+<form class="paramProjectForm" action="" ng-submit="updateProject(project._id, project.name, project.description); closeThisDialog()">
+	<input ng-model="project.name" type="text" maxlength="10" class="form-control">
+	<textarea ng-model="project.description" rows="4" cols="50" type="text"  class="form-control"></textarea>
+</form>
+
+<div class="thumbs ">
+	
+		<img class="col-xs-11" src="{{project.thumbPath+'_1.png'}}" alt="">
+		<img class="col-xs-11" src="{{project.thumbPath+'_2.png'}}" alt="">
+		<img class="col-xs-11" src="{{project.thumbPath+'_3.png'}}" alt="">
+	
+</div>
+
+
+
+<button class="btn btn-danger deleteProject" ng-click='openDeleteDialog(project); closeThisDialog()'>Delete project!</button>
+<button class="btn btn-success updateProject" ng-click='closeThisDialog(); updateProject(project._id, project.name, project.description)'>Update!</button>
