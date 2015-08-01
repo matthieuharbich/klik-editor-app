@@ -13,7 +13,7 @@ KlikPath.prototype.sideBox = function(){
 	// }else{
 	// 	this.video.pause();
 	// }
-	var id = this.layersId[0].sideBox;
+	var id = _this.layersId[0].sideBox;
 	console.log(id)
 	$('#'+ id).empty();
 
