@@ -3,7 +3,7 @@
 var _ = require('lodash');
 var Project = require('./project.model');
 // var ffmpegi = require('liquid-ffmpeg');
-var ffmpeg = require('fluent-ffmpeg');
+// var ffmpeg = require('fluent-ffmpeg');
 var fs = require('fs');
 var path = require('path');
 var Busboy = require('busboy');
@@ -74,16 +74,16 @@ exports.uploadVideo = function(req, res){
       console.log(file);
       console.log('ended')
 
-       var proc = new ffmpeg({ source: file.path })
-        .takeScreenshots({
-            size: '600x?',
-            timemarks: [ '10%', '20%', '60%'],
-            filename: '%b_%i'
-          }, 'client/assets/projects/images', function(err, filenames) {
-            console.log(filenames);
-            console.log('screenshots were saved');
-            res.json(filenames);
-        });
+       // var proc = new ffmpeg({ source: file.path })
+       //  .takeScreenshots({
+       //      size: '600x?',
+       //      timemarks: [ '10%', '20%', '60%'],
+       //      filename: '%b_%i'
+       //    }, 'client/assets/projects/images', function(err, filenames) {
+       //      console.log(filenames);
+       //      console.log('screenshots were saved');
+       //      res.json(filenames);
+       //  });
     });
 
    
