@@ -7,8 +7,8 @@ KlikLayer.prototype.polygonView = function(hTime){
 			if(typeof hTime[videoTime] != 'undefined'){
 				if (lastTime === videoTime) {return};
 			 	lastTime = videoTime;
-			 	console.log(videoTime)
-			 	console.log(hTime[videoTime])
+
+
 			 	_this.color = 'red';
 			 	KlikLayer.prototype.drawPolygones(hTime[videoTime]);
 
@@ -154,7 +154,7 @@ function KlikPolygonPoint(R, points, pointsPercentage, coordinatesString, widthI
 	var start = function () {
 	    this.ox = this.attr("cx");
 	    this.oy = this.attr("cy");
-	    console.log(polygon)
+
 	},
 	move = function (dx, dy) {
 		var dxPercent = (dx/_that.widthInPx)*100;
@@ -213,7 +213,7 @@ function KlikPolygonPoint(R, points, pointsPercentage, coordinatesString, widthI
 		var arrayOfPoints = polygon.coordinatesString.split(/[\s,]+/);
 		var pts = [];
 		var ptsPercentage = [];
-		console.log(polygon)
+
 
 
 		// for (var i = polygon.points.length - 1; i >= 0; i--) {
@@ -243,19 +243,11 @@ function KlikPolygonPoint(R, points, pointsPercentage, coordinatesString, widthI
 		};
 
 		polygon.pointsPercentage = ptsPercentage.slice();
-		// for (var i = polygon.pointsPercentage.length - 1; i >= 0; i--) {
-
-		// 	polygon.pointsPercentage[i] = {
-		// 		x:2 + (4*i),
-		// 		y:2 + (4*i)
-		// 	} 
-		// };
 
 
 	};
 	_that.R.set(p).drag(move, start, up);
 
-	// pointsToPath(_this.coordinatesString);
 	
 }
 

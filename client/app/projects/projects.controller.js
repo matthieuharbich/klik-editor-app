@@ -27,7 +27,7 @@ angular.module('msrsApp')
 	                }).success(function(project) {
 
 	                  callback(null, project);
-	                 console.log(project);
+
 
 	                }).error(function(err){
 	                  callback(err);
@@ -41,7 +41,7 @@ angular.module('msrsApp')
 	.controller('ProjectsCtrl', function (projects, $window, $scope, $http, ngDialog, Upload) {
 			$scope.message = 'Hello';
 			$scope.projects = [];
-			console.log('helloo')
+
 
 			 $scope.$watch('files', function () {
 		        $scope.upload($scope.files);
@@ -58,11 +58,11 @@ angular.module('msrsApp')
 		                    file: file
 		                }).progress(function (evt) {
 		                    var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-		                    console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
+
 		                    $scope.progress = progressPercentage;
 		                }).success(function (data, status, headers, config) {
-		                    console.log('file ' + config.file.name + 'uploaded. Response: ' + data);
-		                    console.log(data);
+
+
 		                    var pathArray = data.file.path.split( '/' );
 		                    var length = pathArray[0].length;
 
@@ -70,8 +70,8 @@ angular.module('msrsApp')
 		                    $scope.videoPath = videoPath;
 		                    var replaceImage = videoPath.replace('videos','images');
 		                    $scope.thumbPath = replaceImage.substring(0, replaceImage.length - 4);
-		                    console.log($scope.videoPath);
-		                    console.log($scope.thumbPath);
+
+
 
 		     //                if(!$scope.$$phase) {
 							//    $scope.$apply(function(){
@@ -79,8 +79,8 @@ angular.module('msrsApp')
 		     //                $scope.videoPath = videoPath;
 		     //                var replaceImage = videoPath.replace('videos','images');
 		     //                $scope.thumbPath = replaceImage.substring(0, replaceImage.length - 4);
-		     //                console.log($scope.videoPath);
-		     //                console.log($scope.thumbPath);
+
+
 		     //                })
 							// }
 
@@ -160,7 +160,7 @@ angular.module('msrsApp')
 		    		description: description
 		    	};
 
-		    	console.log(projectToUpdate);
+
 
 		    	$http.put('/api/projects/' + projectToUpdate._id, projectToUpdate);
 		    }
@@ -187,7 +187,7 @@ angular.module('msrsApp')
 
 		    	
 
-			     console.log($scope.projects);
+
 				  	
 
 		};

@@ -122,22 +122,18 @@ Klik.prototype.createVideo = function(){
 	$(window).bind('mozfullscreenchange', function(e){
 		var state = document.fullScreen || document.mozFullScreen || document.webkitIsFullScreen;
 	    var event = state ? 'FullscreenOn' : 'FullscreenOff'; 
-	    console.log(event)
 	    if (event === 'FullscreenOff') {
 	    	$(selecteur).children().css('z-index','');
 	    }else{
-	    	console.log('zindexxxxxx')
 	    	$(selecteur).children().css(zIndex);
 	    };  
 	})
 	$(videoDom).bind('webkitfullscreenchange  fullscreenchange', function(e) {
 	    var state = document.fullScreen || document.mozFullScreen || document.webkitIsFullScreen;
 	    var event = state ? 'FullscreenOn' : 'FullscreenOff'; 
-	    console.log(event)
 	    if (event === 'FullscreenOff') {
 	    	$(selecteur).children().css('z-index','');
 	    }else{
-	    	console.log('zindexxxxxx')
 	    	$(selecteur).children().css(zIndex);
 	    };  
 	});
@@ -503,7 +499,6 @@ KlikLayer.prototype.dynamise = function(data){
 		        }
 		    });
 		}
-		console.log(hTime)
 		_this.hTime = hTime;	
 		var lastTime = -1;
 		$(video).on('timeupdate', function () {

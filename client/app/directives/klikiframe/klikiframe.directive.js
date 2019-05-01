@@ -9,7 +9,7 @@ angular.module('msrsApp')
         $timeout(function(){
 
           // element.on('timeupdate', function(){
-          //  console.log(element[0].currentTime) ;
+
           // })
             var klik = new Klik('.'+attrs.class);
             var polyLayer = klik.addGraphicLayer('reds');
@@ -34,8 +34,9 @@ angular.module('msrsApp')
               url: 'api/projects/' + scope.videoId
             }).success(function(project){        
 
-               
+
                scope.iframeProject = project;
+
                polyLayer.dynamise(project.klikData)
 
              
@@ -45,7 +46,7 @@ angular.module('msrsApp')
             $(window).on('resize', function(){
               polyLayer.adaptToVideo();
               iframeHeight();
-              console.log($(window).innerHeight())
+
             })
             
             function iframeHeight(){
@@ -215,7 +216,7 @@ angular.module('msrsApp')
 
               $('.togglePlay').on('click', function(){
                 klik.togglePlayPause();
-                console.log('yeah')
+
               })
               });
 

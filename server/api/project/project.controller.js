@@ -68,11 +68,11 @@ exports.uploadVideo = function(req, res){
     form.uploadDir = "client/assets/projects/videos/";
     form.type = true;
     form.on('progress', function(bytesReceived, bytesExpected) {
-        console.log(bytesExpected)
+
     });
     form.on('file', function(name, file) {
-      console.log(file);
-      console.log('ended')
+
+
 
        // var proc = new ffmpeg({ source: file.path })
        //  .takeScreenshots({
@@ -80,8 +80,8 @@ exports.uploadVideo = function(req, res){
        //      timemarks: [ '10%', '20%', '60%'],
        //      filename: '%b_%i'
        //    }, 'client/assets/projects/images', function(err, filenames) {
-       //      console.log(filenames);
-       //      console.log('screenshots were saved');
+
+
        //      res.json(filenames);
        //  });
     });
@@ -93,30 +93,7 @@ exports.uploadVideo = function(req, res){
 
 
     return;
-  // var upload = new Upload({
-  //   dest: 'client/assets/images',
-  //   maxFileSize: 100 * 1024,
-  //   acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
-  //   rename: function(name, file) {
-  //     console.log(this.fields);
-  //     return file.filename;
-  //   }
-  // });
- 
-  // upload.on('end', function(fields, files) {
-  //   if (!fields.channel) {
-  //     this.cleanup();
-  //     this.error('Channel can not be empty');
-  //     return;
-  //   }
-  //   res.send('ok')
-  // });
- 
-  // upload.on('error', function(err) {
-  //   res.send(err);
-  // });
- 
-  // upload.parse(req);
+
 };
 
 // Creates a new project in the DB.
@@ -129,17 +106,17 @@ exports.create = function(req, res) {
       //     .withVideoCodec('vp8')
       //     .withSize('1920x?')
       //     .onProgress(function(progress) {
-      //       console.log(progress);
+
       //     })
       //     .saveToFile('server/assets/vids/bgdbien.webm', function(stdout, stderr) {
-      //       console.log('file has been converted succesfully');
+
       // });
 
     // var proc = new ffmpeg({ source: 'server/assets/vids/bg.mp4' })
     //   // .withSize('50%')
     //   .takeScreenshots(5, 'server/assets/vids', function(err, filenames) {
-    //     console.log(filenames);
-    //     console.log('screenshots were saved');
+
+
     //   });
 
     // var command = new ffmpeg('server/assets/vids/bgd6.avi')
@@ -148,13 +125,13 @@ exports.create = function(req, res) {
     //   .withVideoBitrate(1024)
     //   .withAudioCodec('libvorbis')
     //   // .onProgress(function(progress) {
-    //   //     console.log(progress);
+
     //   //   })
     //   .on('error', function(err) {
-    //     console.log('An error occurred: ' + err.message);
+
     //   })
     //   .on('end', function() {
-    //     console.log('Processing finished !');
+
     //   })
     //   .saveToFile('server/assets/vids/output.webm');
 
@@ -168,7 +145,7 @@ exports.create = function(req, res) {
 
 // Updates an existing project in the DB.
 exports.update = function(req, res) {
-  // console.log(req.query)
+
   
   if(req.body._id) { delete req.body._id; }
   Project.findById(req.params.id, function (err, project) {
@@ -177,12 +154,12 @@ exports.update = function(req, res) {
     if (req.query.duration) {
       
       for (var i = project.klikData.length - 1; i >= 0; i--) {
-        console.log(project.klikData[i].duration)
-        console.log(req.query.duration)
+
+
         if(project.klikData[i].duration == req.query.duration){
-          console.log('yeaaah')
+
           var duration = project.klikData[i];
-          console.log(req.body)
+
           duration.polygon.push(req.body);
           project.save();
         }
@@ -192,9 +169,9 @@ exports.update = function(req, res) {
     
   };
     var updated = _.merge(project, req.body);
-    console.log(updated);
-    console.log(project);
-    console.log(req.body)
+
+
+
     updated.klikData.push(req.body);
     updated.save(function (err) {
       if (err) { return handleError(res, err); }

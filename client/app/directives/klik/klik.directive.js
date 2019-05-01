@@ -15,15 +15,15 @@ angular.module('msrsApp')
 		 	scope.polygones = [];
 
 
-		 	console.log(video)
+
 	
-		   console.log(scope.editorCurrentTime);
+
 
 		   scope.$watch('curT', function(){
 		   		video[0].currentTime = scope.curT;
 		   })
 		   // video.currenTime = 10;
-		    // console.log($('.'+attrs.class).currentTime());
+
 
 	      	polyLayer.stylise({
 	      		// 'background-color': 'pink',
@@ -61,8 +61,8 @@ angular.module('msrsApp')
 			 
 			function update(){
 				for (var i = scope.polygones.length - 1; i >= 0; i--) {
-			 			console.log(scope.polygones[i].getPoints());
-			 			// console.log(scope.polygones[0].ge)
+
+
 			 			scope.polygones[i].update(scope.polygones[i].getPoints());
 			 		};
 			}
@@ -72,10 +72,10 @@ angular.module('msrsApp')
             klik.togglePlayPause();
             if ($('.play-pause span').hasClass('glyphicon-pause')) {
 	       		 $('.play-pause span').removeClass('glyphicon-pause').addClass('glyphicon-play');
-		        console.log('pause');
+
 		      }else{
 		        $('.play-pause span').removeClass('glyphicon-play').addClass('glyphicon-pause');
-		        console.log('play');
+
 		      };
           })
 
@@ -89,19 +89,19 @@ angular.module('msrsApp')
 
          $('#newPolygon').on('click', function(){
          	edit = true;
-         	console.log('yeaaaah')
+
          	if(edit === true){
-         		console.log('newPolygon');
+
 				 	polygone1 = polyLayer.newPolygon();
 				 	scope.polygones.push(polygone1);
-				 	console.log(polygone1);
+
 				 	$('#' + polygone1.paperId).children('svg').on('click', function(e){
 					 	if (first && edit) {
 
 					 		var dim = klik.getVideoDimensions();
 					 		var posX = (e.offsetX/dim.width)*100;
 					 		var posY = (e.offsetY/dim.height)*100;
-					 		console.log(posX)
+
 					 		var pointPos = {
 					    		"x": posX,
 						      	"y": posY
@@ -112,9 +112,9 @@ angular.module('msrsApp')
 						      	"y": e.offsetY
 					    	}
 
-					    	console.log(pointPos)
+
 						 	var points = polygone1.addPoint(pointPosEditor);
-						 	console.log(points);
+
 						 	scope.postPoint(pointPos);
 						 	first = false;
 						 	};
@@ -133,14 +133,14 @@ angular.module('msrsApp')
 				 		polygone1.stop();
 				 		polygone1 = '';
 				 		edit = false;
-				 		console.log('end')
-				 		console.log(edit)
-				 		console.log(polygone1);
+
+
+
 				 		
 
 				 	});
 				 	$('.' + polygone1.polyClass).on('click', function(){
-				 		// console.log(polygone1);
+
 				 	})
 				 	$('#updatePolygon').on('click', function(){
 				 		// polygone1.update();
@@ -249,13 +249,13 @@ angular.module('msrsApp')
 		// 	if (scope.width < widthInPx) {
 		// 		var deltaRatio = (scope.width/widthInPx);
 		// 		scope.width = widthInPx;
-		// 		console.log(deltaRatio);
+
 		// 		$.each(shapes,function(key,shape){
 		// 			shape.transform('s' + deltaRatio,deltaRatio, 0,0);
 		// 		});
 		// 	}else{
 		// 		var deltaRatio = (scope.width/widthInPx);
-		// 		console.log(deltaRatio);
+
 
 		// 		scope.width = widthInPx;
 		// 		$.each(shapes,function(key,shape){
@@ -355,8 +355,8 @@ angular.module('msrsApp')
 		//       },
 		//       closePath: function () {
 		//         path.addPart(['Z']);
-		//         console.log(R.path());
-		//         console.log(R);
+
+
 		//       },
 		//       shouldClose: function (x, y) {
 		//         return Math.abs(startX - x) < closeTolerance &&
@@ -384,7 +384,7 @@ angular.module('msrsApp')
 		// 			}
 		// 			// path.attrs.path.push(point);
 		// 		}
-		//       	console.log(path.attrs.path)
+
 		// 	});
 		// }
 
@@ -419,7 +419,7 @@ angular.module('msrsApp')
 		// }
 
 		// function mouseup() {
-		// 	console.log('mouseup');
+
 		// 	$(window).unbind('mousemove', mousemove);
 		// 	$('#mainEditor-resizer').unbind('mouseup', mouseup);
 		// 	$('#content-resizer').unbind('mouseup', mouseup);
@@ -544,8 +544,8 @@ angular.module('msrsApp')
 
 		// function onElementClick(){
 		// 	$('circle').on('click', function(){
-		// 		console.log('circle');
-		// 		console.log(this)
+
+
 				
 		// 	});
 		// }

@@ -20,12 +20,6 @@ angular.module('msrsApp')
           callback(videoEditorWidth);
       },
 
-      // getVideoEditorHeight: function(callback){
-      //     var videoEditorHeight= angular.element('.editorVideo')[0].offsetHeight;
-
-      //     callback(videoEditorHeight);
-      // },
-
       getFullHeight: function(callback){
           var fullHeight= $window.innerHeight;
 
@@ -105,7 +99,7 @@ angular.module('msrsApp')
   })
 
   .controller('EditorCtrl', function ( EditorFactory, $state, $window, $http, $scope, $stateParams,ngDialog, $sce) {
-    console.log('controller');
+
     $scope.activeElementName = '';
     $scope.activeElementObject = null;
     $scope.elements = [];
@@ -138,14 +132,9 @@ angular.module('msrsApp')
           $scope.hashEditor[durations[i].duration] = durations[i].polygon;
           
         };
-        console.log($scope.hashEditor);
+
       }
-    })  
-
-
-    
-
-    
+    })     
 
 
     video[0].addEventListener('loadedmetadata', function() {
@@ -158,11 +147,9 @@ angular.module('msrsApp')
       $scope.$apply(function() {
           var currentTime = video[0].currentTime;
           $scope.curT = currentTime;
-          // Hours, minutes and seconds
           var hrs = ~~(currentTime / 3600);
           var mins = ~~((currentTime % 3600) / 60);
           var secs =  (currentTime % 60).toFixed(2);
-          // Output like "1:01" or "4:03:59" or "123:03:59"
           var ret = "";
           if (hrs > 0)
               ret += "" + hrs + ":" + (mins < 10 ? "0" : "");
@@ -174,14 +161,10 @@ angular.module('msrsApp')
 
     })
 
-
-
-
     $http.get('/api/projects/' + projectId).success(function(project){
     	$scope.project = project;   
       $scope.klikData = project.klik;
     });
-
 
     function videoEditorHeight(){
       EditorFactory.getFullHeight(function(height){
@@ -221,31 +204,21 @@ angular.module('msrsApp')
               data: dataPoly
             }).success(function(polygon) {
                $scope.polygons.push(polygon);
-               console.log($scope.ptsPoly)
+
                
                
                var durationData = {
                   duration: duration,
                   polygon: [polygon]
                }
-               console.log($scope.hashEditor.hasOwnProperty(duration)) // true);
+
                if ($scope.hashEditor.hasOwnProperty(duration)) {
-                  console.log($scope.hashEditor[duration])
-                  // for (var i = $scope.project.klikData.length - 1; i >= 0; i--) {
-                  //   console.log($scope.project.klikData[i])
-                  //   if(duration === $scope.project.klikData[i].duration){
-                  //     var durId = $scope.project.klikData[i]._id;
-                  //     $scope.project.klikData[i].polygon.push(dataPoly);
-                  //     var durationToUpdate = $scope.project.klikData[i];
-                  //   }
-                  // };
-                  // $scope.hashEditor[duration].push(polygon);
                   $http({
                     method: 'PUT',
                     url: 'api/projects/'+ $scope.project._id+'?duration='+duration,
                     data:  polygon
                   }).success(function(duration){
-                    console.log(duration);
+
                   }).error(function(err){
 
                   })
@@ -255,13 +228,13 @@ angular.module('msrsApp')
                     url: 'api/durations',
                     data: durationData
                    }).success(function(duration){
-                      console.log(duration)
+
                       $http({
                         method: 'PUT',
                         url:'api/projects/' + $scope.project._id,
                         data: duration
                       }).success(function(project){
-                        console.log(project)
+
                       }).error(function(err){
 
                       })
@@ -283,7 +256,7 @@ angular.module('msrsApp')
 
 
             }).error(function(err) {
-              console.log(err)
+
               
               
             });
@@ -302,11 +275,11 @@ angular.module('msrsApp')
             }).success(function(point) {
 
              $scope.ptsPoly.push(point);
-             console.log($scope.ptsPoly)
+
              
 
             }).error(function(err) {
-              console.log(err)
+
               
               
             });
@@ -350,11 +323,11 @@ angular.module('msrsApp')
         url:'api/elements/'+$scope.elementToUpdate.id,
         data: $scope.elementToUpdate
       }).success(function(element){
-        console.log(element);
+
       }).error(function(err){
 
       })
-      console.log($scope.elementToUpdate)
+
     }
 
     $scope.postElement = function(name, e, action, projectId){
